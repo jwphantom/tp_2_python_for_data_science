@@ -1,0 +1,190 @@
+{% extends 'layout.html' %}
+
+{% block title %} Coins Chauds {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <form action="" method="GET">
+            <div class="form-group">
+                <select class="form-control" name="display-option" id="display-option">
+                    <option {% if request.args.get('display-option')=='table' %}selected{% endif %} value="table">
+                        Tableau
+                    </option>
+                    <option {% if request.args.get('display-option')=='graph' %}selected{% endif %} value="graph">
+                        Graphique
+                    </option>
+                </select>
+
+            </div>
+            <button type="submit" class="col-12 btn btn-primary mb-2">Afficher</button>
+        </form>
+    </div>
+</div>
+<br>
+
+
+{% if request.args.get('display-option') == 'table' %}
+<div class="row row-sm mg-b-20">
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Nombres de coins chauds (Yaoundé) </h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="table-responsive">
+                {% if coins_Chauds["Yaoundé"] is defined and coins_Chauds["Yaoundé"]|length > 0 %}
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="wd-45p">Quartier</th>
+                            <th style="text-align: right;">Nombre de coins chauds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in coins_Chauds["Yaoundé"] %}
+                        <tr>
+                            <td style="text-transform: capitalize;"><strong>{{ item.quartier }}</strong></td>
+                            <td style="text-align: right;">{{ item.count }} </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+                {% else %}
+                <p>Aucun coins chauds</p>
+                {% endif %}
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Nombres de coins chauds (Douala) </h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="table-responsive">
+                {% if coins_Chauds["Douala"] is defined and coins_Chauds["Douala"]|length > 0 %}
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="wd-45p">Quartier</th>
+                            <th style="text-align: right;">Nombre de coins chauds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in coins_Chauds["Douala"] %}
+                        <tr>
+                            <td style="text-transform: capitalize;"><strong>{{ item.quartier }}</strong></td>
+                            <td style="text-align: right;">{{ item.count }} </td>
+                        </tr>
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+                {% else %}
+                <p>Aucun coins chauds</p>
+                {% endif %}
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+</div><!-- row -->
+
+<div class="row row-sm mg-b-20">
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Nombres de coins chauds (Garoua) </h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="table-responsive">
+                {% if coins_Chauds["Garoua"] is defined and coins_Chauds["Garoua"]|length > 0 %}
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="wd-45p">Quartier</th>
+                            <th style="text-align: right;">Nombre de coins chauds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in coins_Chauds["Garoua"] %}
+                        <tr>
+                            <td style="text-transform: capitalize;"><strong>{{ item.quartier }}</strong></td>
+                            <td style="text-align: right;">{{ item.count }} </td>
+                        </tr>
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+                {% else %}
+                <p>Aucun coins chauds</p>
+                {% endif %}
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Nombres de coins chauds (Baffoussam) </h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="table-responsive">
+                {% if coins_Chauds["Baffoussam"] is defined and coins_Chauds["Baffoussam"]|length > 0 %}
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="wd-45p">Quartier</th>
+                            <th style="text-align: right;">Nombre de coins chauds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in coins_Chauds["Baffoussam"] %}
+                        <tr>
+                            <td style="text-transform: capitalize;"><strong>{{ item.quartier }}</strong></td>
+                            <td style="text-align: right;">{{ item.count }} </td>
+                        </tr>
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+                {% else %}
+                <p>Aucun coins chauds</p>
+                {% endif %}
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+</div><!-- row -->
+{% elif request.args.get('display-option') == 'graph' %}
+
+<div class="row row-sm mg-b-20">
+    {% for item in imagesBase64 %}
+    {% if item is defined and item|length > 0 %}
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Prix moyens des hôtels</h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="plot">
+                <img src={{ item }} alt="restaurant_data" />
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+    {% else %}
+    <p>Aucun coins chauds </p>
+    {% endif %}
+    {% endfor %}
+
+</div><!-- row -->
+{% else %}
+<div class="row row-sm mg-b-20">
+    Bien vouloir choisir une option
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %} Average {% endblock %}
+
+{% block content %}
+<div class="row row-sm mg-b-20">
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Prix moyens des restaurants</h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="wd-45p">Villes</th>
+                            <th>Nombre</th>
+                            <th>Moyenne</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in town_data %}
+                        <tr>
+                            <td><strong>{{ item.town_name }}</strong></td>
+                            <td>{{ item.count_point }}</td>
+                            <td>FCFA {{ item.average_amount }} </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Prix moyens des hôtels</h6>
+            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
+                metric had been calculated, so the old users metric is displayed.</p>
+            <div class="plot">
+                <img src={{ restaurant_data }} alt="restaurant_data" />
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+</div><!-- row -->
+
+
+
+{% endblock %}

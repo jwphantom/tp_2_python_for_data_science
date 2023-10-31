@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="description" content="Travaux pratique 2 pour l'UE d'enseignement Python for Data Science">
+    <meta name="author" content="OLONGO ONDIGUI JAMES WILLIAM">
+
+    <title>{% block title %}{% endblock %} - Analytical Town </title>
+
+    <!-- vendor css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/ionicons/css/ionicons.min.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/typicons.font/typicons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/flag-icon-css/css/flag-icon.min.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/azia.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+
+</head>
+
+<body>
+
+    <div class="az-header">
+        <div class="container">
+            <div class="az-header-left">
+                <a href="index.html" class="az-logo"><span></span> <img class="logo" src="static/img/logo.png"
+                        alt="logo"> </a>
+                <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+            </div><!-- az-header-left -->
+            <div class="az-header-menu">
+                <div class="az-header-menu-header">
+                    <a href="index.html" class="az-logo"><span></span> azia</a>
+                    <a href="" class="close">&times;</a>
+                </div><!-- az-header-menu-header -->
+                <ul class="nav">
+                    <li class="nav-item active show">
+                        <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i>
+                            Dashboard</a>
+                    </li>
+
+                </ul>
+            </div><!-- az-header-menu -->
+            <div class="az-header-right">
+
+
+                <div class="dropdown az-profile-menu">
+                    <a href="#" class="az-img-user"><i class="fas fa-user"></i>
+                        <div class="dropdown-menu">
+                            <div class="az-dropdown-header d-sm-none">
+                                <a href="#" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                            </div>
+                            <div class="az-header-profile">
+                                <div class="az-img-user">
+                                    <i class="fas fa-user"></i>
+                                </div><!-- az-img-user -->
+                                <h6>Aziana Pechon</h6>
+                                <span>Premium Member</span>
+                            </div><!-- az-header-profile -->
+
+
+                        </div><!-- dropdown-menu -->
+                </div>
+            </div><!-- az-header-right -->
+        </div><!-- container -->
+    </div><!-- az-header -->
+
+    <div class="az-content az-content-dashboard">
+        <div class="container">
+            <div class="az-content-body">
+
+
+                <div class="az-dashboard-nav">
+                    <nav class="nav">
+                        <a class="nav-link {% if page == 'average' %}active{% endif %}" href="/average">Average</a>
+                        <a class="nav-link {% if page == 'classification' %}active{% endif %}"
+                            href="/classification">Classification</a>
+                        <a class="nav-link {% if page == 'rankingPI' %}active{% endif %}"
+                            href="/rankingPI">Classement</a>
+                        <a class="nav-link {% if page == 'luxury' %}active{% endif %}" href="/luxury">Luxury</a>
+                        <a class="nav-link {% if page == 'bank' %}active{% endif %}" href="/bank">DAB & Banques</a>
+                        <a class="nav-link {% if page == 'coins-chauds' %}active{% endif %}"
+                            href="/coins-chauds?display-option=table">Coins
+                            Chauds</a>
+
+
+                        <a class="nav-link {% if page == 'more' %}active{% endif %}" href="#">More</a>
+                    </nav>
+
+                </div>
+
+                {% block content %}{% endblock %}
+
+            </div><!-- az-content-body -->
+        </div>
+    </div><!-- az-content -->
+
+    <div class="az-footer ht-40">
+        <div class="container ht-100p pd-t-0-f">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Analytical Town
+                2023</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                Travaux Pratiques 2</a> Python For Data Science</span>
+        </div><!-- container -->
+    </div><!-- az-footer -->
+
+
+    <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='lib/peity/jquery.peity.min.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/azia.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='lib/ionicons/ionicons.js') }}" charset="utf-8"></script>
+
+
+</body>
+
+</html>
