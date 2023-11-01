@@ -1,5 +1,3 @@
-# app/routes/average_interest_route.py
-
 from flask import (
     jsonify,
     request,

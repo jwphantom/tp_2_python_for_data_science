@@ -6,9 +6,11 @@ import numpy as np
 
 
 class GraphicGenerator:
+    # Fonction qui génère un histogramme
     @staticmethod
     def generate_histogram(data, town_names):
         fig = Figure()
+
         ax = fig.subplots()
 
         x_values = range(1, len(data) + 1)
@@ -27,6 +29,7 @@ class GraphicGenerator:
 
         return imageBase64
 
+    # Fonction qui génère un pie chart
     @staticmethod
     def generate_pie_chart(data, labels):
         fig = Figure()

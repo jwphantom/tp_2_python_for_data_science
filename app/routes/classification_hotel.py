@@ -15,7 +15,7 @@ average_interest_bp = Blueprint("average_interest", __name__)
 # route qui gère la classification des hôtels supérieur à 3 étoiles
 @app.route("/classification", methods=["GET"])
 def classification():
-    town_names = ["Yaoundé", "Douala", "Bafoussam"]
+    town_names = ["Yaoundé", "Douala", "Garoua", "Bafoussam"]
     category_name = "Hôtel"
     language = "fr"
 
