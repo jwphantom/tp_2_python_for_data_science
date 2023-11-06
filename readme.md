@@ -6,10 +6,9 @@ Bienvenue dans l'application Analytical Town, une application web Flask conçue 
 
 Le projet est organisé de la manière suivante :
 
-
-ANALYTICALTOWN
 app/
-   init.py
+    init.py
+    ###autres fichiers
 
     routes/
         init.py
@@ -23,7 +22,7 @@ app/
         ###fichiers de vue
 
     utils/
-        ### fonction
+        ### fichier de fonction
 
     database.py
 
