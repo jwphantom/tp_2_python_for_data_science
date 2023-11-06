@@ -7,23 +7,41 @@ Bienvenue dans l'application Analytical Town, une application web Flask conçue 
 Le projet est organisé de la manière suivante :
 
 
-ANALYTICALTOWN/
-    app/
-        __init__.py
-        routes/
-            __init__.py
-            category_routes.py
-        models/
-            __init__.py
-            category.py
+ANALYTICALTOWN
+app/
+   init.py
+
+    routes/
+        init.py
+        ###autres fichiers
+    
+    models/
+        init.py
+        ###autres fichiers
+
+    templates/
+        ###fichiers de vue
+
+    utils/
+        ### fonction
+
+    database.py
+
+    error.py
+
     config.py
-    run.py
+
+run.py
 
 
 
 - Le dossier `app` contient le code de l'application Flask.
 - Le sous-dossier `routes` contient les fichiers de routage de l'application.
 - Le sous-dossier `models` contient les modèles de données.
+- Le sous-dossier `templates` contient les vues des routes.
+- Le sous-dossier `utils` contient des fonctions statique.
+- `database.py` contient la configuration de la base de donnée.
+- `error.py` contient la gestion des erreurs web.
 - `config.py` contient la configuration de l'application.
 - `run.py` est le point d'entrée de l'application.
 
@@ -49,7 +67,7 @@ pip install -r requirements.txt
 ## Lancement de l'application
 
 ```shell
-flask --app run run --debug
+flask --app run run 
 ```
 
 ## Usage
