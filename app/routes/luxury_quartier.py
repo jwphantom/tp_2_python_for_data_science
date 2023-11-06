@@ -1,6 +1,8 @@
 import json
 from flask import Blueprint, render_template
-from app import app, db
+from app import app
+from app.database import db
+
 from app.models.category import Category
 from app.models.classificationHotel import classificationHotel
 import math
@@ -21,17 +23,21 @@ def luxury():
 
     quartier_result = {}
 
+    # requête vide en cas d'echec pour relancer la connexion
+    calculate_luxury_hotel("", "")
+
     for town_name in town_names:
         data = calculate_luxury_hotel(town_name, category_name)
         town_data = []
-        for d in data:
-            result = {
-                "name": d[0],
-                "avg_amount": math.ceil(d[1]),
-                "avg_star": math.ceil(d[2]),
-                "town": town_name,
-            }
-            town_data.append(result)
+        if data is not None:  # Check if data is not None
+            for d in data:
+                result = {
+                    "name": d[0],
+                    "avg_amount": math.ceil(d[1]),
+                    "avg_star": math.ceil(d[2]),
+                    "town": town_name,
+                }
+                town_data.append(result)
         quartier_result[town_name] = town_data
 
     print(quartier_result)

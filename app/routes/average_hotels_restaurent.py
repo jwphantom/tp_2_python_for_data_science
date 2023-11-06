@@ -27,7 +27,11 @@ def average():
     # Résultats pour la catégorie "hôtel"
     hotel_result = []
 
+    # requête vide en cas d'echec pour relancer la connexion
+
     for town_name in town_names:
+        calculate_average_interest("", "", "")
+
         for category_name in category_names:
             data = calculate_average_interest(town_name, language, category_name)
             if data:

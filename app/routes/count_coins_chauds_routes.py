@@ -21,21 +21,25 @@ def coinsChauds():
     # Résultats pour la catégorie "coins chauds"
     coins_Chauds = {}
 
+    # requête vide en cas d'echec pour relancer la connexion
+    calculate_distraction_quartier("", "")
+
     for town_name in town_names:
         data = calculate_distraction_quartier(town_name, category_name)
         quartier_data = []
-        for d in data:
-            if d:
-                result = {
-                    "quartier": d[0],
-                    "count": d[1],
-                }
-            else:
-                result = {
-                    "quartier": "",
-                    "count": 0,
-                }
-            quartier_data.append(result)
+        if data is not None:  # Check if data is not None
+            for d in data:
+                if d:
+                    result = {
+                        "quartier": d[0],
+                        "count": d[1],
+                    }
+                else:
+                    result = {
+                        "quartier": "",
+                        "count": 0,
+                    }
+                quartier_data.append(result)
         coins_Chauds[town_name] = quartier_data
 
     coins_Chauds_data = []

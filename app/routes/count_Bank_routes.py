@@ -21,6 +21,8 @@ def bank():
     # Résultats pour la catégorie "hôtel"
     countBank = []
 
+    calculate_bank_count_by_town("", "")
+
     countBank = calculate_bank_count_by_town(town_names, category_name)
 
     print(countBank)

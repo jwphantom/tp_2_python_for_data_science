@@ -16,16 +16,22 @@ average_interest_bp = Blueprint("average_interest", __name__)
 def rankingPI():
     town_names = ["Yaoundé", "Douala", "Garoua", "Bafoussam"]
 
+    # requête vide en cas d'echec pour relancer la connexion
+    count_verified_interests_in_cities("")
+
     # Résultats pour la catégorie "hôtel"
     rankingPI = []
 
-    rankingPI = count_verified_interests_in_cities(town_names)
+    for i in range(2):
+        rankingPI = count_verified_interests_in_cities(town_names)
 
-    print(rankingPI)
+        print(rankingPI)
 
     rankingPI_dataGraph = GraphicGenerator.generate_histogram(
         [entry[1] for entry in rankingPI], [item[0] for item in rankingPI]
     )
+
+    print(rankingPI_dataGraph)
 
     return render_template(
         "rankingPI.html",
