@@ -4,7 +4,7 @@ from app.models.point_interest import PointInterest
 from app.models.quartier import Quartier
 from app.models.town import Town
 from app.models.category import Category
-from sqlalchemy import func
+from sqlalchemy import desc, func
 from sqlalchemy.exc import SQLAlchemyError
 
 from sqlalchemy import exc
@@ -12,20 +12,24 @@ from sqlalchemy import event
 from sqlalchemy.pool import Pool
 
 
-def classificationHotel(town_name, language, category_name):
+def rankingLuxuryQuartier(towns, category_name):
     try:
         query = (
             db.session.query(
-                PointInterest.name, PointInterest.etoile, Quartier.name, Town.name
+                Quartier.name.label("quartier_name"),
+                func.avg(Price.amount).label("average_amount"),
+                func.avg(PointInterest.etoile).label("average_etoile"),
             )
-            .select_from(Town)
-            .join(Quartier, Town.id == Quartier.town_id)
-            .join(PointInterest, Quartier.id == PointInterest.quartier_id)
-            .join(Category, PointInterest.category_id == Category.id)
-            .filter(Town.name == town_name)
-            .filter(Category.name == category_name)
-            .filter(PointInterest.etoile > 3)
-            .group_by(PointInterest.name)
+            .join(Price, Price.pointinteret_id == PointInterest.id)
+            .join(Category, Category.id == PointInterest.category_id)
+            .join(Quartier, Quartier.id == PointInterest.quartier_id)
+            .join(Town, Town.id == Quartier.town_id)
+            .filter(Town.name.in_(towns))
+            .filter(Category.name == "Hôtel")
+            .group_by(PointInterest.name, Quartier.name, Town.name)
+            .having(PointInterest.etoile > 3)
+            .order_by(desc("average_price"))
+            .limit(5)
         )
 
         result = query.all()

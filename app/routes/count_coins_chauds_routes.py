@@ -1,3 +1,4 @@
+# Importations de bibliothèques et de modules
 import json
 from flask import Blueprint, render_template
 from app import app, db
@@ -5,29 +6,35 @@ from app.models.category import Category
 from app.models.coinsChaud import calculate_distraction_quartier
 import math
 import matplotlib.pyplot as plt
-
 from app.utils.graphic import GraphicGenerator
 
-
+# Crée un Blueprint pour les routes liées à la catégorie "Coins chauds"
 average_interest_bp = Blueprint("average_interest", __name__)
 
 
+# Définition d'une route Flask pour "/coins-chauds" en utilisant la méthode GET
 @app.route("/coins-chauds", methods=["GET"])
 def coinsChauds():
+    # Liste des noms de villes
     town_names = ["Yaoundé", "Douala", "Garoua", "Bafoussam"]
+
+    # Nom de la catégorie (Coins chauds)
     category_name = "Coins chauds"
+
+    # Langue par défaut (français)
     language = "fr"
 
-    # Résultats pour la catégorie "coins chauds"
+    # Dictionnaire pour stocker les résultats de la catégorie "Coins chauds"
     coins_Chauds = {}
 
-    # requête vide en cas d'echec pour relancer la connexion
+    # Appel initial pour la distraction du quartier (avec des arguments vides)
     calculate_distraction_quartier("", "")
 
+    # Boucle pour effectuer la distraction du quartier pour chaque ville
     for town_name in town_names:
         data = calculate_distraction_quartier(town_name, category_name)
         quartier_data = []
-        if data is not None:  # Check if data is not None
+        if data is not None:  # Vérifie si les données ne sont pas nulles
             for d in data:
                 if d:
                     result = {
@@ -62,6 +69,7 @@ def coinsChauds():
 
     print(len(imagesBase64))
 
+    # Renvoie un modèle HTML avec des données pour l'affichage
     return render_template(
         "coinsChauds.html",
         page="coins-chauds",

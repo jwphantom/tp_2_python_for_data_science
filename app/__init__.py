@@ -1,6 +1,6 @@
 # app/__init__.py
 
-from flask import Flask
+from flask import Flask, g
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from app.database import init_db  # Importez la fonction d'initialisation
@@ -11,6 +11,7 @@ app.config.from_object(Config)
 
 # Utilisez la fonction d'initialisation pour créer l'instance de la base de données
 db = init_db(app)
+
 
 # Importation des routes
 from app.routes import category_routes

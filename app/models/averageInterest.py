@@ -6,6 +6,7 @@ from app.models.town import Town
 from app.models.category import Category
 from sqlalchemy import func
 from sqlalchemy.exc import SQLAlchemyError
+from flask import g, redirect, url_for
 
 
 def calculate_average_interest(town_name, language, category_name):

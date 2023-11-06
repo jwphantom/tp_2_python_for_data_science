@@ -7,19 +7,25 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Histogramme de nombre de banques</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Répresentation du nombre de banques dans les villes de Yaoundé, Douala,
+                Bafoussam, et Garoua</p>
+            {% if countBank_dataGraph is defined and countBank_dataGraph|length > 0 %}
             <div class="plot">
                 <img src={{ countBank_dataGraph }} alt="countBank_data" />
             </div><!-- table-responsive -->
+            {% else %}
+            <p>Aucun données suffisante</p>
+            {% endif %}
         </div><!-- card -->
     </div><!-- col-lg -->
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Nombres de Banques par ville</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Tableau répresentatif du nombre de banques dans les villes de Yaoundé,
+                Douala, Bafoussam, et Garoua</p>
             <div class="table-responsive">
+                {% if countBank is defined and countBank|length > 0 %}
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -36,6 +42,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% else %}
+                <p>Aucun données suffisante</p>
+                {% endif %}
             </div><!-- table-responsive -->
         </div><!-- card -->
     </div><!-- col-lg -->

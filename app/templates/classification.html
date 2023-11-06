@@ -3,12 +3,51 @@
 {% block title %} classification {% endblock %}
 
 {% block content %}
+<div class="row row-sm mg-b-20 d-flex justify-content-center">
+    <div class="col-md-12 text-center">
+        <form action="" method="GET">
+            <div class="form-group">
+                <select class="form-control" name="display-option" id="display-option">
+
+                    <option {% if request.args.get('display-option')=='graph' %}selected{% endif %} value="graph">
+                        Graphique
+                    </option>
+                    <option {% if request.args.get('display-option')=='table' %}selected{% endif %} value="table">
+                        Tableau Détaillé
+                    </option>
+                </select>
+
+            </div>
+            <button type="submit" class="col-12 btn btn-primary mb-2">Valider</button>
+        </form>
+    </div>
+</div>
+
+{% if request.args.get('display-option') == 'graph' %}
+<div class="row row-sm mg-b-20 d-flex justify-content-center">
+    <div class="col-lg-6 ht-lg-100p">
+        <div class="card card-table-one">
+            <h6 class="card-title">Répartition des hôtels plus de 3 étoiles</h6>
+            <p class="az-content-text mg-b-20">Répartition des hôtels de plus de 3 étoiles dans les différentes villes
+                de Yaoundé, Douala, Bafoussam et Garoua</p>
+            <div class="table-responsive">
+                {% if countEtoile_dataGraph is defined and countEtoile_dataGraph|length > 0 %}
+                <div class="plot">
+                    <img src={{ countEtoile_dataGraph }} alt="countBank_data" />
+                </div><!-- table-responsive -->
+                {% else %}
+                <p>Aucun hôtel a plus de 3 étoiles</p>
+                {% endif %}
+            </div><!-- table-responsive -->
+        </div><!-- card -->
+    </div><!-- col-lg -->
+</div><!-- row -->
+{% elif request.args.get('display-option') == 'table' %}
 <div class="row row-sm mg-b-20">
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">classification des Hôtels (Yaoundé) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Tabeau récapitulatifs des hôtels 5 étoiles de la ville de Yaoundé.</p>
             <div class="table-responsive">
                 {% if hotel_result["Yaoundé"] is defined and hotel_result["Yaoundé"]|length > 0 %}
 
@@ -50,8 +89,7 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">classification des Hôtels (Douala) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Tabeau récapitulatifs des hôtels 5 étoiles de la ville de Douala.</p>
             <div class="table-responsive">
                 {% if hotel_result["Douala"] is defined and hotel_result["Douala"]|length > 0 %}
 
@@ -95,8 +133,7 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">classification des Hôtels (Garoua) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Tabeau récapitulatifs des hôtels 5 étoiles de la ville de Garoua.</p>
             <div class="table-responsive">
                 {% if hotel_result["Garoua"] is defined and hotel_result["Garoua"]|length > 0 %}
 
@@ -137,9 +174,8 @@
 
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
-            <h6 class="card-title">classification des Hôtels (Baffoussam) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <h6 class="card-title">classification des Hôtels (Bafoussam) </h6>
+            <p class="az-content-text mg-b-20">Tabeau récapitulatifs des hôtels 5 étoiles de la ville de Bafoussam.</p>
             <div class="table-responsive">
                 {% if hotel_result["Bafoussam"] is defined and hotel_result["Bafoussam"]|length > 0 %}
 
@@ -178,6 +214,14 @@
         </div><!-- card -->
     </div><!-- col-lg -->
 </div><!-- row -->
+{% else %}
+<div class="row row-sm mg-b-20 d-flex justify-content-center">
+    <div class="col-lg-6 ht-lg-100p">
+        Bien vouloir choisir une option
+    </div>
+</div>
+{% endif %}
+
 
 
 {% endblock %}

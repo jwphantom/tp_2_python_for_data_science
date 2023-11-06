@@ -7,9 +7,10 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Prix moyens des restaurants</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Tableau récapitulatifs des prix moyens dans les catégories restaurant</p>
             <div class="table-responsive">
+                {% if town_data is defined and town_data|length > 0 %}
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -28,6 +29,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% else %}
+                <p>Aucun données suffisante</p>
+                {% endif %}
             </div><!-- table-responsive -->
         </div><!-- card -->
     </div><!-- col-lg -->
@@ -35,11 +39,15 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Prix moyens des hôtels</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Graphe répresentatif des prix moyens dans les catégories hôtel</p>
+            {% if town_data is defined and town_data|length > 0 %}
+
             <div class="plot">
                 <img src={{ restaurant_data }} alt="restaurant_data" />
             </div><!-- table-responsive -->
+            {% else %}
+            <p>Aucun données suffisante</p>
+            {% endif %}
         </div><!-- card -->
     </div><!-- col-lg -->
 </div><!-- row -->

@@ -8,7 +8,7 @@ class PointInterest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
     etoile = db.Column(db.Integer)
-    address = db.Column(db.String(255))
+    adress = db.Column(db.String(255))
     longitude = db.Column(db.Float)
     latitude = db.Column(db.Float)
     description = db.Column(db.String(255))

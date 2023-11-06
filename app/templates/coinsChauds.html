@@ -29,8 +29,7 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Nombres de coins chauds (Yaoundé) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Listes des 5 quartiers les plus chauds de la villes de Yaoundé</p>
             <div class="table-responsive">
                 {% if coins_Chauds["Yaoundé"] is defined and coins_Chauds["Yaoundé"]|length > 0 %}
 
@@ -62,8 +61,8 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Nombres de coins chauds (Douala) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Listes des 5 quartiers les plus chauds de la villes de Douala</p>
+
             <div class="table-responsive">
                 {% if coins_Chauds["Douala"] is defined and coins_Chauds["Douala"]|length > 0 %}
 
@@ -97,8 +96,8 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Nombres de coins chauds (Garoua) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Listes des 5 quartiers les plus chauds de la villes de Garoua</p>
+
             <div class="table-responsive">
                 {% if coins_Chauds["Garoua"] is defined and coins_Chauds["Garoua"]|length > 0 %}
 
@@ -129,9 +128,9 @@
 
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
-            <h6 class="card-title">Nombres de coins chauds (Baffoussam) </h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <h6 class="card-title">Nombres de coins chauds (Bafoussam) </h6>
+            <p class="az-content-text mg-b-20">Listes des 5 quartiers les plus chauds de la villes de Bafoussam</p>
+
             <div class="table-responsive">
                 {% if coins_Chauds["Baffoussam"] is defined and coins_Chauds["Baffoussam"]|length > 0 %}
 
@@ -167,9 +166,9 @@
     {% if item is defined and item|length > 0 %}
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
-            <h6 class="card-title">Prix moyens des hôtels</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <h6 class="card-title">Répartition des coins les plus chauds</h6>
+            <p class="az-content-text mg-b-20">Répartition des 5 quartiers les plus chauds de la villes de
+                {{coins_Chauds["Douala"]}}</p>
             <div class="plot">
                 <img src={{ item }} alt="restaurant_data" />
             </div><!-- table-responsive -->

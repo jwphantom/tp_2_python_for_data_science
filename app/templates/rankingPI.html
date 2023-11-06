@@ -7,24 +7,33 @@
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Histogramme des points d'intérêts vérifiés</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Répartition du nombre de centres d’intérêts qui sont recommandés dans les
+                villes
+                de Yaoundé, Douala, Garoua, Bafoussam.</p>
+            {% if rankingPI_dataGraph is defined and rankingPI_dataGraph|length > 0 %}
+
             <div class="plot">
                 <img src={{ rankingPI_dataGraph }} alt="countBank_data" />
             </div><!-- table-responsive -->
+            {% else %}
+            <p>Aucun données suffisante</p>
+            {% endif %}
         </div><!-- card -->
     </div><!-- col-lg -->
     <div class="col-lg-6 ht-lg-100p">
         <div class="card card-table-one">
             <h6 class="card-title">Classement des points d'intérêts vérifiés</h6>
-            <p class="az-content-text mg-b-20">Part of this date range occurs before the new users
-                metric had been calculated, so the old users metric is displayed.</p>
+            <p class="az-content-text mg-b-20">Classement du nombre de centres d’intérêts qui sont recommandés dans les
+                villes
+                de Yaoundé, Douala, Garoua, Bafoussam.</p>
             <div class="table-responsive">
+                {% if rankingPI is defined and rankingPI|length > 0 %}
+
                 <table class="table">
                     <thead>
                         <tr>
                             <th class="wd-45p">Villes</th>
-                            <th style="text-align: right;">Nombre de banques</th>
+                            <th style="text-align: right;">Nombre</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +45,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% else %}
+                <p>Aucun données suffisante</p>
+                {% endif %}
             </div><!-- table-responsive -->
         </div><!-- card -->
     </div><!-- col-lg -->
