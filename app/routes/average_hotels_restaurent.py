@@ -66,9 +66,6 @@ def average():
             elif category_name == "hôtel":
                 hotel_result.append(result)
 
-    # Affiche les résultats de la catégorie "hôtel" dans la console
-    print(hotel_result)
-
     # Génère des données pour un histogramme des résultats de la catégorie "hôtel"
     restaurant_data = GraphicGenerator.generate_histogram(
         [entry["average_amount"] for entry in hotel_result], town_names

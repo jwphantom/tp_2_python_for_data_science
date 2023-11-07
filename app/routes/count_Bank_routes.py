@@ -31,9 +31,6 @@ def bank():
     for i in range(2):
         countBank = calculate_bank_count_by_town(town_names, category_name)
 
-    # Affiche les résultats du décompte des banques dans la console
-    print(countBank)
-
     # Génère un histogramme pour le décompte des banques
     countBank_dataGraph = GraphicGenerator.generate_histogram(
         [entry[1] for entry in countBank], [item[0] for item in countBank]

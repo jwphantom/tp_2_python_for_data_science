@@ -49,13 +49,22 @@ def classification():
         town_data = []
         if data is not None:
             for d in data:
-                result = {
-                    "hotel": d[0],
-                    "etoile": d[1],
-                    "quartier": d[2],
-                    "town": town_name,
-                }
-                town_data.append(result)
+                if d:
+                    result = {
+                        "hotel": d[0],
+                        "etoile": d[1],
+                        "quartier": d[2],
+                        "town": town_name,
+                    }
+                    town_data.append(result)
+                else:
+                    result = {
+                        "hotel": "",
+                        "etoile": 0,
+                        "quartier": d[2],
+                        "town": town_name,
+                    }
+                    town_data.append(result)
 
         # Ajoute les résultats au dictionnaire des résultats des hôtels par ville
         hotel_result[town_name] = town_data

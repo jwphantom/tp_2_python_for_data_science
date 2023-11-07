@@ -29,16 +29,10 @@ def rankingPI():
     for i in range(2):
         rankingPI = count_verified_interests_in_cities(town_names)
 
-        # Affiche les résultats du classement PI dans la console
-        print(rankingPI)
-
     # Génère un histogramme pour le classement PI
     rankingPI_dataGraph = GraphicGenerator.generate_histogram(
         [entry[1] for entry in rankingPI], [item[0] for item in rankingPI]
     )
-
-    # Affiche les données du graphique de classement PI dans la console
-    print(rankingPI_dataGraph)
 
     # Renvoie un modèle HTML avec des données pour l'affichage
     return render_template(

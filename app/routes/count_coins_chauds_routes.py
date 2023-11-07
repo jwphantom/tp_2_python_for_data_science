@@ -67,8 +67,6 @@ def coinsChauds():
         imagesBase64.append(image)
         index += 1
 
-    print(len(imagesBase64))
-
     # Renvoie un modèle HTML avec des données pour l'affichage
     return render_template(
         "coinsChauds.html",
